@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {c, l} from "./number";
 
 const title = "Title";
 const truth = true;
@@ -16,8 +17,10 @@ class App extends Component {
                     Edit <code>src/App.js</code> and save to reload.
                 </p>
 
+                <p>count*length = {c * l}</p>
+
                 <h1 style={{color: 'tomato', margin: 0}}> {title}</h1>
-                <p style={{color: 'tomato', margin: 10}}>Это {11} урок из {30}. Осталось {30 - 11} уроков.</p>
+                <p style={{color: 'tomato', margin: 10}}>Это {11} урок из {43}. Осталось {43 - 11} уроков.</p>
 
                 {truth &&
                 <p style={{color: 'tomato', margin: 10}}> логические операции</p>
