@@ -7,7 +7,7 @@ const App = () => (<div>
     <h1>todos</h1>
     <InputItem/>
     <ItemList/>
-    <Footer/>
+    <Footer count={3}/>
 </div>);
 
 
