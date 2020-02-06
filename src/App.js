@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-
-const ItemList = () => (<ul>
-    <li>1</li>
-    <li>2</li>
-</ul>);
+import React from 'react';
+import InputItem from "./components/InputItem/InputItem";
+import ItemList from "./components/ItemList/ItemList";
+import Footer from "./components/Footer/Footer";
 
 const App = () => (<div>
-    <h1>Hello World!</h1>
-    <ItemList />
+    <h1>todos</h1>
+    <InputItem/>
+    <ItemList/>
+    <Footer/>
 </div>);
 
 
