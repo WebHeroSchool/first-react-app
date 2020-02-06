@@ -17,7 +17,7 @@ class App extends Component {
                 </p>
 
                 <h1 style={{color: 'tomato', margin: 0}}> {title}</h1>
-                <p style={{color: 'tomato', margin: 10}}>Это {11} урок из {30}. Осталось {30 - 11} уроков.</p>
+                <p style={{color: 'tomato', margin: 10}}>Это {11} урок из {43}. Осталось {43 - 11} уроков.</p>
 
                 {truth &&
                 <p style={{color: 'tomato', margin: 10}}> логические операции</p>
