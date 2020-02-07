@@ -1,7 +1,8 @@
 import React from 'react';
-import InputItem from "./components/InputItem/InputItem";
-import ItemList from "./components/ItemList/ItemList";
-import Footer from "./components/Footer/Footer";
+import InputItem from "../InputItem/InputItem";
+import ItemList from "../ItemList/ItemList";
+import Footer from "../Footer/Footer";
+import './App.css';
 
 const items = [
     {
@@ -15,8 +16,8 @@ const items = [
     }
 ];
 
-const App = () => (<div>
-    <h1>todos</h1>
+const App = () => (<div className="wrap">
+    <h1 className="wrap__title">todos</h1>
     <InputItem/>
     <ItemList items={items}/>
     <Footer count={3}/>
