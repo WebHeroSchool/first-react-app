@@ -1,0 +1,9 @@
+.wrap {
+    margin: auto;
+    width: 300px;
+    font-family: Gabriola, serif;
+}
+
+.title {
+    text-transform: uppercase;
+}
