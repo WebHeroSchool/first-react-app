@@ -1,7 +1,7 @@
 import React from "react";
 
-const Item = ({ item }) =>
-    (<div>Вот такое дело: {item}</div>);
+const Item = ({ value }) =>
+    (<div>Вот такое дело: {value}</div>);
 
 
 
