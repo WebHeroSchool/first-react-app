@@ -6,14 +6,17 @@ import styles from './App.module.css'
 
 const items = [
     {
-        value: 'Написать новое приложение'
+        value: 'Первое дело',
+        isDone: true
     },
     {
-        value: 'прописать props'
+        value: 'Второе дело',
+        isDone: false
     },
     {
-        value: 'сделать все дела'
-    }
+        value: 'Третье дело',
+        isDone: true
+    },
 ];
 
 const App = () => (<div className={styles.wrap}>
