@@ -1,7 +1,22 @@
 .item {
-    color: red;
+    color: black;
+    font-size: 20px;
+    margin-right: 10px;
 }
 
 .done {
-    color: green;
+    text-decoration: line-through;
+}
+
+.icon {
+    display: none !important;
+    cursor: pointer;
+}
+.itemWrap {
+    display: flex;
+    align-items: center;
+}
+
+.itemWrap:hover .icon {
+    display: inline-block !important;
 }
