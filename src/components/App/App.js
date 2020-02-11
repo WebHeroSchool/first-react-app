@@ -16,18 +16,29 @@ const items = [
     }
 ];
 
-const App = () => (<div className={styles.wrap}>
-    <h1 className={styles.title}>todos</h1>
-    <InputItem/>
-    <ItemList items={items}/>
-    <Footer count={3}/>
-</div>);
+class App extends React.Component {
+    state = {
+        items: [
+            {
+                value: 'Написать новое приложение'
+            },
+            {
+                value: 'прописать props'
+            },
+            {
+                value: 'сделать все дела'
+            }
+        ]
+    };
 
-
-/*class App extends Component {
-  render() {
-    return ( );
-  }
-}*/
+    render() {
+        return (<div className={styles.wrap}>
+            <h1 className={styles.title}>todos</h1>
+            <InputItem/>
+            <ItemList items={items}/>
+            <Footer count={3}/>
+        </div>);
+    }
+}
 
 export default App;
