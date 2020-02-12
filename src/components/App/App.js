@@ -41,11 +41,15 @@ class App extends React.Component {
         ],
     };
 
+    onButtonClick(event) {
+        console.log(event.target.value);
+    }
+
     render() {
         return (<div className={styles.wrap}>
             <h1 className={styles.title}>Важные дела</h1>
             <InputItem/>
-            <ItemList items={items}/>
+            <ItemList items={items} onButonClick={this.onButtonClick}/>
             <Footer count={items.filter(item => !item['isDone']).length}/>
         </div>)
     }
