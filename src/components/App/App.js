@@ -19,20 +19,36 @@ const items = [
     },
 ];
 
-let tasksToDo = items.filter(item => !item['isDone']).length;
 
-const App = () => (<div className={styles.wrap}>
-    <h1 className={styles.title}>Важные дела</h1>
-    <InputItem/>
-    <ItemList items={items}/>
-    <Footer count={tasksToDo}/>
-</div>);
+class App extends React.Component {
+    state = {
+        items: [
+            {
+                value: 'Первое дело',
+                isDone: true,
+                id: 1,
+            },
+            {
+                value: 'Второе дело',
+                isDone: false,
+                id: 2,
+            },
+            {
+                value: 'Третье дело',
+                isDone: true,
+                id: 3,
+            },
+        ],
+    };
 
-
-/*class App extends Component {
-  render() {
-    return ( );
-  }
-}*/
+    render() {
+        return (<div className={styles.wrap}>
+            <h1 className={styles.title}>Важные дела</h1>
+            <InputItem/>
+            <ItemList items={items}/>
+            <Footer count={items.filter(item => !item['isDone']).length}/>
+        </div>)
+    }
+}
 
 export default App;
