@@ -58,11 +58,24 @@ class App extends React.Component {
         this.setState({ items: newItemList });
     };
 
+    addTask = value => {
+        const newTask = {
+            value: value,
+            isDone: false,
+            id: this.state.count + 1
+        };
+
+        this.setState({
+            items: [...this.state.items, newTask],
+            count: this.state.count + 1
+        });
+    };
+
     render() {
         return (
             <div className={styles.wrap}>
             <h1 className={styles.title}>Важные дела</h1>
-            <InputItem/>
+            <InputItem addTask={this.addTask}/>
             <ItemList items={this.state.items}
                       setTaskState={this.setTaskState}
                       removeTask={this.removeTask}
