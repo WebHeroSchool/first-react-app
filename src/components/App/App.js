@@ -52,11 +52,11 @@ class App extends React.Component {
         this.setState({ items: newItemList });
     };
 
-  /*  removeTask = id => {
-        const newTaskList = this.state.itemList.filter(item => item.id !== id);
+    removeTask = task => {
+        const newItemList = this.state.items.filter(item => item.id !== task.id);
 
-        this.setState({ itemList: newTaskList });
-    };*/
+        this.setState({ items: newItemList });
+    };
 
     render() {
         return (
@@ -65,6 +65,7 @@ class App extends React.Component {
             <InputItem/>
             <ItemList items={this.state.items}
                       setTaskState={this.setTaskState}
+                      removeTask={this.removeTask}
             />
             <Footer count={items.filter(item => !item['isDone']).length}/>
         </div>)

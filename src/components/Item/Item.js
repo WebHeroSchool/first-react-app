@@ -4,7 +4,7 @@ import styles from './Item.module.css'
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const Item = ({task, setTaskState}) => (
+const Item = ({task, setTaskState, removeTask}) => (
     <div className={styles.itemWrap}>
         <Checkbox
             value="checkedA"
@@ -20,7 +20,9 @@ const Item = ({task, setTaskState}) => (
         }>
             {task.value}
         </span>
-        <DeleteIcon className={styles.icon} />
+        <DeleteIcon className={styles.icon}
+                    onClick={() => removeTask(task)}
+        />
     </div>
 );
 
