@@ -3,10 +3,14 @@ import Item from "../Item/Item";
 import styles from './ItemList.module.css'
 
 
-const ItemList = ({items}) => (<ul>
+const ItemList = ({items, setTaskState}) => (<ul>
     { items.map(item =>
-        <li className={styles.element} key={item.value} onClick={() => console.log(item.isDone)}>
-            <Item value={item.value} isDone={item.isDone} />
+        <li className={styles.element}
+            key={item.value}
+        >
+            <Item task={item}
+                  setTaskState={setTaskState}
+            />
         </li>) }
 </ul>);
 

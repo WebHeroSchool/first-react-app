@@ -41,15 +41,31 @@ class App extends React.Component {
         ],
     };
 
-    onButtonClick(event) {
-        console.log(event.target.value);
-    }
+    setTaskState = task => {
+        const newItemList = this.state.items.map(item => {
+            if (item.id === task.id) {
+                item.isDone = !item.isDone;
+            }
+            return item;
+        });
+
+        this.setState({ items: newItemList });
+    };
+
+  /*  removeTask = id => {
+        const newTaskList = this.state.itemList.filter(item => item.id !== id);
+
+        this.setState({ itemList: newTaskList });
+    };*/
 
     render() {
-        return (<div className={styles.wrap}>
+        return (
+            <div className={styles.wrap}>
             <h1 className={styles.title}>Важные дела</h1>
             <InputItem/>
-            <ItemList items={items} onButonClick={this.onButtonClick}/>
+            <ItemList items={this.state.items}
+                      setTaskState={this.setTaskState}
+            />
             <Footer count={items.filter(item => !item['isDone']).length}/>
         </div>)
     }

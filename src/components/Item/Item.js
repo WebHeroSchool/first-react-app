@@ -4,20 +4,21 @@ import styles from './Item.module.css'
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const Item = ({value, isDone}) => (
+const Item = ({task, setTaskState}) => (
     <div className={styles.itemWrap}>
         <Checkbox
             value="checkedA"
-            checked={isDone}
+            checked={task.isDone}
             inputProps={{ 'aria-label': 'Checkbox A' }}
         />
-        <span className={
+        <span onClick={() => setTaskState(task)}
+            className={
             classnames({
                 [styles.item]: true,
-                [styles.done]: isDone
+                [styles.done]: task.isDone
             })
         }>
-            {value}
+            {task.value}
         </span>
         <DeleteIcon className={styles.icon} />
     </div>
