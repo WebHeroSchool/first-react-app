@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import styles from './Item.module.css'
 import Checkbox from '@material-ui/core/Checkbox';
 import DeleteIcon from '@material-ui/icons/Delete';
+import PropTypes from 'prop-types';
 
 const Item = ({task, setTaskState, removeTask}) => (
     <div className={styles.itemWrap}>
@@ -26,5 +27,10 @@ const Item = ({task, setTaskState, removeTask}) => (
     </div>
 );
 
+Item.propTypes = {
+    task: PropTypes.object,
+    setTaskIsDone: PropTypes.func,
+    removeTask: PropTypes.func
+};
 
 export default Item;

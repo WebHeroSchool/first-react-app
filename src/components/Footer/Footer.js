@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './Footer.module.css'
+import PropTypes from 'prop-types'
 
 import Button from '@material-ui/core/Button';
 
@@ -15,6 +16,10 @@ const Footer = ({ count }) =>
 
 Footer.defaultProps = {
     count: 0
+};
+
+Footer.propTypes = {
+    count: PropTypes.number
 };
 
 
