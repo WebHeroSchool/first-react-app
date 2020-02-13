@@ -30,6 +30,7 @@ class App extends React.Component {
 
     setTaskState = task => {
         const newItemList = this.state.items.map(item => {
+            console.log(task.id);
             if (item.id === task.id) {
                 item.isDone = !item.isDone;
             }
@@ -49,10 +50,11 @@ class App extends React.Component {
     };
 
     addTask = value => {
+        console.log(this.state.count);
         const newTask = {
             value: value,
             isDone: false,
-            id: this.state.count + 1
+            id: [...this.state.items].pop() + 1
         };
 
         this.setState({
