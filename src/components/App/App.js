@@ -54,7 +54,7 @@ class App extends React.Component {
         const newTask = {
             value: value,
             isDone: false,
-            id: [...this.state.items].pop() + 1
+            id: [...this.state.items].pop().id + 1
         };
 
         this.setState({
