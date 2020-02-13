@@ -10,12 +10,14 @@ class Item extends React.Component {
         console.log('componentWillMount');
     }
     componentDidMount() {
+        this.timerID = setInterval(() => console.log('УТЕЧКА'), 1000);
         console.log('componentDidMount');
     }
     componentDidUpdate() {
         console.log('componentDidUpdate');
     }
     componentWillUnmount() {
+        clearInterval(this.timerID);
         console.log('componentWillUnmount');
     }
 
