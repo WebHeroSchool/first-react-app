@@ -5,6 +5,26 @@
     text-align: center;
 }
 
-.title {
-    text-transform: uppercase;
+
+
+.link {
+    text-decoration: none;
+    color: #000000;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+
+    width: 100%;
+}
+.link__item {
+    margin-right: 0.5rem ;
+}
+
+.link__item:hover {
+    border-radius: 15px;
+    color: #356EFF;
 }
