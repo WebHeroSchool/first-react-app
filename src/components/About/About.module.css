@@ -1,0 +1,76 @@
+.about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+ion-icon {
+    font-size: 18px;
+}
+
+.photo {
+    background-color: grey;
+    width: 130px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.info_mail,
+.info_send {
+    display: flex;
+    align-items: center;
+    color: #999999;
+}
+
+.info_name {
+    font-weight: bold;
+}
+
+.info_mail ion-icon,
+.info_send ion-icon {
+    padding-right: 10px;
+}
+
+.socials {
+    display: flex;
+    align-items: flex-end;
+}
+
+.socials ion-icon {
+    padding-right: 10px;
+    font-size: 26px;
+    color: #999999;
+}
+
+.git {
+    padding-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.git__heading {
+    font-weight: bold;
+    margin-bottom: 13em;
+}
+
+.error_block {
+    position: relative;
+    text-align: center;
+}
+
+.error_block::before {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    content: '';
+    width: 372px;
+    height: 233px;
+    /*background: url(./git-error.svg) no-repeat center center;*/
+}
+
+.error_title {
+    font-weight: bold;
+}
+.error_subtitle{
+    color: #999999;
+}
