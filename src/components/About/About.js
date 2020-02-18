@@ -76,8 +76,9 @@ class About extends React.Component {
             <div>
                 <Card className={styles.about}>
                     <div className={styles.info}>
-                        <p className={styles.info_name}>{userData.name}</p>
-                        <p className={styles.info_mail}> <ion-icon name="mail">{userData.login}</ion-icon>  </p>
+                        <p className={styles.info_name}>Name: {userData.name}</p>
+                        <img src={userData.avatar_url} alt={userData.name} width='100' />
+                        <p className={styles.info_name}>Login: {userData.login}</p>
                     </div>
                 </Card>
 
@@ -86,7 +87,7 @@ class About extends React.Component {
                     {repoList &&
                     repoList.map(item => (
                         <div key={item.id}>
-                            {item.name} {item.html_url}
+                            {item.name} <a href={item.html_url}>{item.html_url}</a>
                         </div>
                     ))}
                 </Card>
