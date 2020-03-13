@@ -6,6 +6,10 @@ import Loader from '../Loader/Loader';
 
 
 const octokit = new Octokit();
+const userContacts = {
+    email: 'ksenia.pyagay@aiesec.com',
+    phoneNumber: '+7(952)358-6890'
+};
 
 class About extends React.Component {
     state = {
@@ -13,7 +17,8 @@ class About extends React.Component {
         repoList:[],
         err: false,
         userData: {},
-        count: 0
+        // firstRepo: 0,
+        // lastRepo: 5
     };
 
     componentDidMount() {
@@ -51,13 +56,14 @@ class About extends React.Component {
         }).catch((err)=>{
             console.log(err);
             this.setState({
+                isLoading: false,
                 err: "Что-то пошло не так..."
             })
         })
     }
 
     render() {
-        const {isLoading, repoList,err, userData, count} = this.state;
+        const {isLoading, repoList,err, userData} = this.state;
         if (isLoading) {
             return (
                 <div className={styles.wrap}>
@@ -68,28 +74,86 @@ class About extends React.Component {
         if (err) {
             return (
                 <div className={styles.wrap}>
-                    <p>Не удалось загрузить данные</p>
+                    <p>{err}</p>
                 </div>
             )
         }
         return (
-            <div>
-                <Card className={styles.about}>
-                    <div className={styles.info}>
-                        <p className={styles.info_name}>Name: {userData.name}</p>
-                        <img src={userData.avatar_url} alt={userData.name} width='100' />
-                        <p className={styles.info_name}>Login: {userData.login}</p>
+            <div className={styles.wrap}>
+                <Card className={styles.user_card}>
+                    <div className={styles.info_about_user}>
+                        <img src={userData.avatar_url} alt={userData.name} className={styles.user_avatar} />
+                            <div className={styles.contacts}>
+                                <h1 className={styles.name}>{userData.name}</h1>
+                                <div className={styles.bio}>{userData.bio}</div>
+                                    <a href='mailto:ksenia.pyagay@aiesec.com' className={styles.link}>
+                                        <ion-icon name='mail' />
+                                        { userContacts.email }
+                                    </a>
+                                    <a href='tg://resolve?domain=kseniaPyagay' className={styles.link}>
+                                        <ion-icon name='send' />
+                                        { userContacts.phoneNumber }
+                                    </a>
+                                <div className={styles.social_networks}>
+                                    <a
+                                        href='https://github.com/seasmail'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className={styles.link}
+                                    >
+                                        <ion-icon name='logo-github'></ion-icon>
+                                    </a>
+                                    <a
+                                        href='https://vk.com/id433824523'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className={styles.link}
+                                    >
+                                        <ion-icon name='logo-vk'></ion-icon>
+                                    </a>
+                                    <a
+                                        href='https://www.linkedin.com/in/ksenia-pyagay-4151b2162'
+                                        target='_blank'
+                                        rel='noopener noreferrer'
+                                        className={styles.link}
+                                    >
+                                        <ion-icon name='logo-linkedin'></ion-icon>
+                                    </a>
+                                </div>
+                            </div>
                     </div>
                 </Card>
 
-                <Card className={styles.git}>
-                    <p className={styles.git__heading}>Repositories on GitHub</p>
-                    {repoList &&
-                    repoList.map(item => (
-                        <div key={item.id}>
-                            {item.name} <a href={item.html_url}>{item.html_url}</a>
+                <Card className={styles.works}>
+                        <div className={styles.works__wrapp}>
+                                <div className={styles.repositories}>
+                                    <ul className={styles.list}>
+                                        {repoList.map(repo => (
+                                            <li className={styles.repository} key={repo.id}>
+                                                <div>
+                                                    <div className={styles['repo-name-wrap']}>
+                                                        <a
+                                                            href={repo.svn_url}
+                                                            className={styles['info-about-repository-wrapped__link']}
+                                                            target='_blank'
+                                                            rel='noopener noreferrer'
+                                                        >
+                                                            {repo.name}
+                                                        </a>
+                                                    </div>
+                                                    <div className={styles['info-about-repository']}>
+                                                        <div className={styles[`info-about-repository__${repo.language}-icon`.toLowerCase()]}></div>
+                                                        <p className={styles['info-about-repository__language']}>{repo.language}</p>
+                                                        <p className={styles['info-about-repository__star']}>{repo.stargazers_count}</p>
+                                                        <p className={styles['info-about-repository__forks']}>{repo.forks}</p>
+                                                        <p className={styles['info-about-repository__update']}>{repo.updated_at}</p>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                         </div>
-                    ))}
                 </Card>
             </div>
         );

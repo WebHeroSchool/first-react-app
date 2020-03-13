@@ -9,14 +9,26 @@
 }
 
 .icon {
-    display: none !important;
+    /*display: none !important;*/
     cursor: pointer;
 }
-.itemWrap {
+.wrapp {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    min-height: 36px;
+    border: 1px solid #CCC;
+    border-radius: 41px;
+    padding-right: 15px;
 }
 
-.itemWrap:hover .icon {
+.wrapp:hover .icon {
     display: inline-block !important;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
 }

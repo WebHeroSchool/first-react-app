@@ -2,78 +2,153 @@ import React from 'react';
 import ItemList from '../ItemList/ItemList';
 import InputItem from '../InputItem/InputItem';
 import styles from './Todos.module.css';
-import Footer from "../App/App";
+import Card from '@material-ui/core/Card';
 
-class App extends React.Component {
+class Todos extends React.Component {
     state = {
         items: [
             {
-                value: 'Первое дело',
-                isDone: true,
                 id: 1,
-            },
-            {
-                value: 'Второе дело',
+                value: 'Изучить React',
                 isDone: false,
-                id: 2,
             },
             {
-                value: 'Третье дело',
-                isDone: true,
+                id: 2,
+                value: 'Почитать',
+                isDone: false,
+            },
+            {
                 id: 3,
+                value: 'Работа',
+                isDone: false,
+            },
+            {
+                id: 4,
+                value: 'Тесты',
+                isDone: true,
             },
         ],
-        count: 1,
+        count: 4,
+        selectedMenuItem: 'all',
+        errorRepeatCaseinInput: false,
     };
 
-    setTaskState = task => {
+    onClickDone = id => {
         const newItemList = this.state.items.map(item => {
-            console.log(task.id);
-            if (item.id === task.id) {
+            if (item.id === id) {
                 item.isDone = !item.isDone;
-            }
+            };
+
             return item;
         });
 
         this.setState({ items: newItemList });
     };
 
-    removeTask = task => {
-        const newItemList = this.state.items.filter(item => item.id !== task.id);
-        let count = this.state.count;
-        if (!task.isDone) {
-            count--;
-        }
-        this.setState({ items: newItemList, count });
+    onClickAddItem = value => {
+        const item = this.state.items.filter(item => item.value === value);
+
+        if (item.length === 0) {
+            this.setState(state => ({
+                items: [
+                    ...state.items,
+                    {
+                        id: state.count + 1,
+                        value,
+                        isDone: false
+                    }
+                ],
+                count: state.count + 1,
+                classNameForInputWrapp: false,
+            }));
+        } else {
+            this.setState({ classNameForInputWrapp: true });
+
+            setTimeout(() => {
+                this.setState({
+                    classNameForInputWrapp: false
+                })
+            }, 1500);
+        };
     };
 
-    addTask = value => {
-        console.log(this.state.count);
-        const newTask = {
-            value: value,
-            isDone: false,
-            id: [...this.state.items].pop().id + 1
-        };
-
-        this.setState({
-            items: [...this.state.items, newTask],
-            count: this.state.count + 1
+    onClickDeleteItem = id => {
+        const newItemList = this.state.items.filter(item => {
+            return item.id !== id;
         });
+
+        this.setState({ items: newItemList });
     };
 
     render() {
-        return (
-            <div>
-                <h1 className={styles.title}>Важные дела</h1>
-                <InputItem addTask={this.addTask}/>
-                <ItemList items={this.state.items}
-                          setTaskState={this.setTaskState}
-                          removeTask={this.removeTask}
-                />
-                <Footer count={this.state.count}/>
-            </div>
-        );
-    }
-}
+        const allItems = this.state.items;
+        const completedItems = this.state.items.filter(item => item.isDone === true);
+        const uncompletedItems = this.state.items.filter(item => item.isDone === false);
 
-export default App;
+        let items;
+        switch (this.state.selectedMenuItem) {
+            case 'all':
+                items = allItems;
+                break;
+            case 'completedItems':
+                items = completedItems;
+                break;
+            case 'uncompletedItems':
+                items = uncompletedItems;
+                break;
+            default:
+                items = allItems;
+        };
+
+        return (
+            <section className={styles.section}>
+                <Card className={styles.todos}>
+                    <div className={styles.head}>
+                        <h1 className={styles.head__title}>Список моих дел</h1>
+                        <div className={styles.menu}>
+                            <button
+                                onClick={() => {
+                                    this.setState({
+                                        selectedMenuItem: 'completedItems',
+                                    });
+                                }}
+                                className={styles['menu__is-done']}
+                            >
+                                Завершённые
+                                <span className={styles['menu__is-done_span']}>
+                  {completedItems.length}
+                </span>
+                            </button>
+                            <button
+                                onClick={() => {
+                                    this.setState({
+                                        selectedMenuItem: 'uncompletedItems',
+                                    });
+                                }}
+                                className={styles['menu__isnt-done']}>
+                                Незавершённые
+                                <span className={styles['menu__isnt-done_span']}>
+                    {uncompletedItems.length}
+                  </span>
+                            </button>
+                            <button
+                                onClick={() => {
+                                    this.setState({
+                                        selectedMenuItem: 'all',
+                                    });
+                                }}
+                                className={styles.menu__all}
+                            >
+                                Все
+                            </button>
+                        </div>
+                    </div>
+                    <ItemList items={items} onClickDone={this.onClickDone} onClickDeleteItem={this.onClickDeleteItem} />
+                    <InputItem items={this.state.items} classNameForInputWrapp={this.state.classNameForInputWrapp} onClickAddItem={this.onClickAddItem} />
+                </Card>
+            </section>
+        );
+    };
+};
+
+export default Todos;
