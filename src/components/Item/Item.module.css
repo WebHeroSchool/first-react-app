@@ -1,0 +1,34 @@
+.item {
+    color: black;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.icon {
+    /*display: none !important;*/
+    cursor: pointer;
+}
+.wrapp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    min-height: 36px;
+    border: 1px solid #CCC;
+    border-radius: 41px;
+    padding-right: 15px;
+}
+
+.wrapp:hover .icon {
+    display: inline-block !important;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+}

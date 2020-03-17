@@ -1,0 +1,438 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: inherit;
+}
+
+.preloader {
+    background-size: contain;
+    height: 80px;
+    width: 80px;
+    margin: auto;
+}
+
+.user_card {
+    height: auto;
+    width: inherit;
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+}
+
+.info_about_user {
+    display: flex;
+    min-height: 184px;
+    width: 100%;
+}
+
+.bio {
+    color: #999;
+    margin-bottom: 14px;
+    font: normal normal 18px 'Roboto';
+    text-align: initial;
+}
+
+.name {
+    margin-bottom:12px;
+    margin-top: 0;
+    font: normal bold 28px/100% 'Roboto';
+    text-align: initial;
+
+}
+.repositories {
+    height: 432px;
+}
+
+.repo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.user_avatar {
+    height: 183px;
+    border-radius: 9px;
+    margin-right: 32px;
+}
+.contacts {
+    font-size: 18px;
+    width: 100%;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    color: #999;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #356EFF;
+}
+
+ion-icon {
+    padding-right: 5px;
+}
+
+.error_wrap {
+    margin: 0 auto;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error_image {
+    margin-bottom: 24px;
+    height: 164px;
+    width: 267px;
+}
+
+.error_message {
+    margin: 0 0 8px 0;
+    font: normal normal 18px/21px 'Roboto';
+}
+
+.message_try_again {
+    color: #999;
+    margin: 0 0 20px 0;
+    font: normal normal 14px/16px 'Roboto';
+}
+
+.social_networks {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 110px;
+    color: #999;;
+    float: right;
+}
+.social_networks ion-icon {
+    font-size: 30px;
+}
+
+.works {
+    display: flex;
+    align-items: center;
+    height: 432px;
+    width: inherit;
+}
+
+.works__wrapp {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.works__title {
+    display: flex;
+    margin-bottom: 16px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.error__text {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.error__help {
+    color: #999;
+    font-size: 14px;
+}
+
+.repositories {
+    display: flex;
+    justify-content: center;
+    height: 350px;
+}
+
+.list {
+    overflow-y: auto;
+    width: 90%;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CCC;
+    border-radius: 6px;
+}
+
+.repository {
+    border: 1px solid #CCC;
+    box-sizing: border-box;
+    border-radius: 10px;
+    list-style-type: none;
+    margin-bottom: 8px;
+    padding: 6px 12px;
+    height: auto;
+}
+.repo-name-wrap {
+    text-align: initial;
+}
+.info-about-repository-wrapped {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 12px;
+    height: 36px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.info-about-repository {
+    display: flex;
+    color: #999;
+    font: normal normal 12px/14px 'Roboto';
+    align-items: center;
+}
+
+.info-about-repository-wrapped__link {
+    color: #000;
+    height: 30px;
+    font: normal 500 14px/16px 'Roboto';
+    text-decoration: none;
+}
+
+.info-about-repository-wrapped__link:hover {
+    color: #356EFF;
+}
+
+.info-about-repository__null-icon {
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background-color: #696969;
+    border-radius: 50%;
+}
+
+.info-about-repository__html-icon {
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background: #E34C26;
+    border-radius: 50%;
+}
+
+.info-about-repository__typescript-icon {
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background: #2b7489;
+    border-radius: 50%;
+}
+.info-about-repository__java-icon {
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background: #b07219;
+    border-radius: 50%;
+}
+.info-about-repository__python-icon {
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background: #3572A5;
+    border-radius: 50%;
+}
+
+.info-about-repository__css-icon {
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background: #563D7C;
+    border-radius: 50%;
+}
+
+.info-about-repository__javascript-icon {
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+    background: #F1E05A;
+    border-radius: 50%;
+}
+
+.info-about-repository__language {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 73px;
+}
+
+.info-about-repository__star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 45px;
+    background: url(./img/star.png) left center no-repeat;
+}
+
+.info-about-repository__forks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 45px;
+    background: url(./img/forks.png) left center no-repeat;
+}
+
+.info-about-repository__update {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+@media (min-width: 410px) and (max-width: 767px) {
+
+    .wrap {
+        max-width: 640px;
+        min-width: 360px;
+    }
+
+    .name {
+        font: normal bold 20px/100% 'Roboto';
+    }
+
+    .user_card {
+        max-width: 640px;
+        min-width: 360px;
+    }
+
+    .user_avatar {
+        margin-right: 25px;
+        height: 120px;
+        width: auto;
+    }
+
+    .repo_card {
+        max-width: 640px;
+        min-width: 360px;
+        max-height: 432px;
+        padding: 20px 25px 22px 25px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 409px) {
+
+    .wrap {
+        background-size: 60px;
+        max-width: 390px;
+        min-width: 310px;
+        height: auto;
+        margin: auto;
+    }
+
+    .user_card,
+    .repo_card {
+        max-width: 390px;
+        min-width: 310px;
+    }
+
+    .repo_card {
+        padding: 10px;
+    }
+
+    .name {
+        margin-bottom: 5px;
+        font: normal bold 18px/100% 'Roboto';
+    }
+
+    .user_avatar {
+        margin-right: 10px;
+        height: 100px;
+        width: auto;
+    }
+
+    .bio {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .wrap {
+        background-size: 60px;
+        width: 300px;
+        height: auto;
+        margin: auto;
+    }
+
+    .user_card,
+    .repo_card {
+        width: 300px;
+    }
+
+    .repo_card {
+        padding: 10px;
+    }
+
+    .name {
+        margin-bottom: 5px;
+        font: normal bold 18px/100% 'Roboto';
+    }
+
+    .user_avatar {
+        margin-right: 10px;
+        height: 100px;
+        width: auto;
+    }
+
+    .bio {
+        margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 570px) {
+    .section {
+        min-height: 830px;
+    }
+
+    .user__wrapp {
+        padding: 8px;
+    }
+
+    .info {
+        flex-direction: column;
+    }
+
+    .info__avatar,
+    .description,
+    .contacts {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .description__bio {
+        margin-bottom: 20px;
+    }
+
+    .description__tg {
+        margin: 0 auto 10px auto;
+        text-align: center;
+    }
+
+    .info-about-repository-wrapped {
+        height: 41px;
+    }
+
+    .works__title {
+        padding-left: 8px;
+    }
+}
+
+@media (max-width: 400px) {
+    .info-about-repository__update {
+        display: none;
+    }
+}

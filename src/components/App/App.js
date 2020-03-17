@@ -1,43 +1,40 @@
 import React from 'react';
-import InputItem from "../InputItem/InputItem";
-import ItemList from "../ItemList/ItemList";
-import Footer from "../Footer/Footer";
-import styles from './App.module.css'
+import { BrowserRouter as Router, Route, NavLink  } from 'react-router-dom';
 
-const items = [
-    {
-        value: 'Написать новое приложение'
-    },
-    {
-        value: 'прописать props'
-    },
-    {
-        value: 'сделать все дела'
-    }
-];
+import styles from './App.module.css'
+import About from  '../About/About'
+import Todos from  '../Todos/Todos'
 
 class App extends React.Component {
-    state = {
-        items: [
-            {
-                value: 'Написать новое приложение'
-            },
-            {
-                value: 'прописать props'
-            },
-            {
-                value: 'сделать все дела'
-            }
-        ]
-    };
 
     render() {
-        return (<div className={styles.wrap}>
-            <h1 className={styles.title}>todos</h1>
-            <InputItem/>
-            <ItemList items={items}/>
-            <Footer count={3}/>
-        </div>);
+        return (
+            <div className={styles.wrap}>
+                <Router>
+                    <header className={styles.header}>
+                        <nav className={styles.sidebar}>
+
+                                <NavLink to="/"
+                                         exact
+                                      className={styles.link}
+                                      activeClassName={styles.activeLink}
+                                >
+                                    About Me
+                                </NavLink>
+                                <NavLink to="/todo"
+                                         className={styles.link}
+                                         activeClassName={styles.activeLink}
+                                >
+                                    Todo's
+                                </NavLink>
+                        </nav>
+                    </header>
+                    <section className={styles.content}>
+                        <Route path="/" exact component={About} />
+                        <Route path="/todo"  component={Todos} />
+                    </section>
+                </Router>
+        </div>)
     }
 }
 

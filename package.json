@@ -3,11 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "4.6.1",
+    "@octokit/rest": "16.35.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@material-ui/core": "^4.9.2",
+    "@material-ui/icons": "^4.9.1",
+    "classnames": "^2.2.6",
+    "ionicons": "^5.0.0",
+    "material-ui-icons": "^1.0.0-beta.36",
+    "prop-types": "^15.7.2"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
