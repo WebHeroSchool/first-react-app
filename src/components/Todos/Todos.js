@@ -6,28 +6,8 @@ import Card from '@material-ui/core/Card';
 
 class Todos extends React.Component {
     state = {
-        items: [
-            {
-                id: 1,
-                value: 'Изучить React',
-                isDone: false,
-            },
-            {
-                id: 2,
-                value: 'Почитать',
-                isDone: false,
-            },
-            {
-                id: 3,
-                value: 'Работа',
-                isDone: false,
-            },
-            {
-                id: 4,
-                value: 'Тесты',
-                isDone: true,
-            },
-        ],
+        items: JSON.parse(localStorage.getItem('list') ||
+            '[{"id": 1, "value": "Изучить React", "isDone": false}, {"id": 2, "value": "Поспать", "isDone": true}]'),
         count: 4,
         selectedMenuItem: 'all',
         errorRepeatCaseinInput: false,
@@ -84,6 +64,9 @@ class Todos extends React.Component {
         const allItems = this.state.items;
         const completedItems = this.state.items.filter(item => item.isDone === true);
         const uncompletedItems = this.state.items.filter(item => item.isDone === false);
+
+        let itemList = JSON.stringify(this.state.items);
+        localStorage.setItem('list', itemList);
 
         let items;
         switch (this.state.selectedMenuItem) {
